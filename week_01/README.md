@@ -1,6 +1,6 @@
 # Sabrina Yusoff
 
-!(data_selfie.jpg)
+![](data_selfie.jpg)
 
 I am a second-year MSCAPP student from Singapore. I am excited for this class
 and am interested in reading both the required and optional texts, and hope to be equipped
