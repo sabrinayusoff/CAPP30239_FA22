@@ -1,3 +1,8 @@
+# Bar Chart Exercise
+
+I created a bar chart for library visits in Jan 2022, mainly using the code worked on in class as a template.
+I changed the color of the bar chart to coral and increased the font size to 12px to make it more visible.
+
 # Data for Final Project
 
 ### Data Source
