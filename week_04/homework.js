@@ -46,7 +46,7 @@ d3.csv('long-term-interest-canada.csv').then(data => {
         .attr("y", height)
         .attr("dx", "0.5em")
         .attr("dy", "-0.5em") 
-        .text("Year");
+        .text("Month (2020)");
     
     svg.append("text")
         .attr("class", "y-label")
@@ -59,8 +59,8 @@ d3.csv('long-term-interest-canada.csv').then(data => {
 
     let line = d3.line()
         .x(d => x(d.Month))
-        .y(d => y(d.Num))
-        .curve(d3.curveBasis);
+        .y(d => y(d.Num));
+        // .curve(d3.curveBasis) to have a smoother curve line
     
     svg.append("path")
         .datum(data)
