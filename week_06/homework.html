@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 Charts Exercise</title>
+    <style>
+        svg {
+            width: 100%;
+            height: 100vh;
+        }
+        text {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+        }
+        #donut-chart {
+            max-width: 800px;
+            max-height: 800px;
+            margin: 0 auto;
+        }
+        #stacked-bar {
+            max-width: 800px;
+            max-height: 800px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Number of People Shot by Police, by Race</h1>
+        <p>
+            This bar chart shows the breakdown of race amongst the people shot by police in 2015.
+            I picked this chart type as it is easy to view the differences in count across race group.
+            I also included the percentage of each race group out of the total number of people shot by
+            police.
+            However, this is not a complete depiction of reality. It would be more accurate to show the
+            percentage of people shot out of the total population in each race group. Using population
+            statistics would reflect this better.
+            Additionally, there is a sizeable proportion of people (7.42%) whose race is unknown.
+        </p>
+        <div id="bar-chart"></div>
+    </div>
+    
+    <div class="container">
+        <h1>Proportion with Mental Illness</h1>
+        <p>
+            This donut chart shows the proportion of people shot by the police who had mental illness.
+            I picked this chart because there are only two categories to be
+            represented, and so there would not be difficulty viewing the labels of each
+            category. It might be more helpful to know if signs of mental illness were visible or observed
+            by the police officers who shot the persons with mental illness, to dig deeper into
+            understanding better the thought process of these officers when deciding to shoot such persons.
+        </p>
+        <div id="donut-chart"></div>
+    </div>
+
+    <div class="container">
+        <h1>Proportion of People Armed By State</h1>
+        <p>
+            This stacked horizontal bar chart shows the number of people who were armed,
+            organized by state. I picked this chart as it not only shows the breakdown
+            of people who were armed in each state, but also allows us to compare the
+            overall number of people shot in each state.
+            To simplify the data, I assumed that any person
+            who was not labelled as "unarmed" or with no label, was armed. This may
+            not have been the best decision as it is not clear why there are empty strings
+            for a sizeable number of cases. Additionally, I did not break down the types
+            of weapons in possession of those who were armed, and these vary greatly, including:
+            gun, chain, blunt object and screwdriver.
+            We see that California had by far the highest overall number of people shot by
+            the police. A more accurate visualization would be to show the per capita
+            number of people shot, as the population of California is more than 30% larger than
+            that of Texas, so they are not comparable.
+            Nevertheless, another observation we can make from the chart is that in most states,
+            more armed persons were shot by police than unarmed persons. This could be clearer had I included
+            tooltips or labels to more clearly view the proportion of armed persons in each state.
+        </p>
+        <div id="stacked-bar"></div>
+    </div>
+
+</body>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="bar_chart.js"></script>
+<script src="donut_chart.js"></script>
+<script src="stacked_bar.js"></script>
+</html>
