@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transport Equity in Chicago</title>
+  <style>
+     * {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <h1>Mode of Transportation By Earnings in Chicago in 2020</h1>
+    <p>This chart shows the proportion of people using various modes of transportation in Chicago in 2020.
+        To add: legend and percentage labels to more clearly show proportions.
+        Source: 
+      <a href="https://data.census.gov/table?q=s0802&g=0400000US17$8600000&tid=ACSST5Y2020.S0802&moe=true&tp=false">US Census (American Community Survey)</a>
+    </p>
+   <div id="mode-of-transport-earnings"></div>
+  </div>
+
+  <div id="container">
+    <h1>Commute Times by Zipcode</h1>
+    <p>This chart shows the time taken to travel to work for those taking public transportation, organized by zip code in 2020.
+        Source: 
+      <a href="https://data.census.gov/table?q=s0802&g=0400000US17$8600000&tid=ACSST5Y2020.S0802&moe=true&tp=false">US Census (American Community Survey)</a>
+    </p>
+   <div id="commute-times"></div>
+   <div id="choropleth-legend"></div>
+  </div>
+
+  <div id="container">
+    <h1>Donut chart</h1>
+    <p>This chart shows the proportion of Chicago residents travelling to work by driving cars alone, carpooling, and public transport.
+        Source: 
+      <a href="https://data.census.gov/table?q=s0802&g=0400000US17$8600000&tid=ACSST5Y2020.S0802&moe=true&tp=false">US Census (American Community Survey)</a>
+    </p>
+   <div id="donut-chart-modes"></div>
+  </div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="libs/d3-color-legend.js"></script> <!-- color legend from Observable -->
+  <script src="stacked_bar_modes_of_transport.js"></script>
+  <script src="choropleth_commute_times.js"></script>
+  <script src="modes_of_transport_donut.js"></script>
+  <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+</body>
+</html>
