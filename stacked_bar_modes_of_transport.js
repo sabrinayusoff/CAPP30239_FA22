@@ -18,7 +18,7 @@ earnings = ["$1 to $34,999 or less",
             "$35,000 to $74,999",
             "$75,000 or more"]
 
-d3.csv("mode_of_transport_aggregate_combinedearningscategories.csv").then(data => {
+d3.csv("data/mode_of_transport_aggregate_combinedearningscategories.csv").then(data => {
     for (let d of data) {
         d.count = +d.count; //force a number
     };

@@ -1,7 +1,7 @@
 /* This script creates a donut chart showing the breakdown of people using different
 modes of transportation. */
 
-d3.csv("mode_of_transport_donut.csv").then(data => {
+d3.csv("data/mode_of_transport_donut.csv").then(data => {
 
     console.log(data);
 
