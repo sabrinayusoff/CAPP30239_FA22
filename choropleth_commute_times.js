@@ -61,22 +61,34 @@ Promise.all([
         .selectAll('path')
         .data(chicago.features)
         .join('path')
-        .attr('fill', d => (d.zip in dataById) ? color(dataById[d.zip].mean_travel_time) : '#ccc')
+        // .attr('fill', d => (d.zip in dataById) ? color(dataById[d.zip].mean_travel_time) : '#ccc')
+        .attr("fill", (d) => { 
+            // console.log(d);
+            return d.properties.zip in dataById
+              ? color(dataById[d.properties.zip].mean_travel_time)
+              : "#ccc";
+          })
         .attr('d', geoGenerator)
         .attr('stroke', 'black')
         // tooltip
-        .on("mousemove", function (event, d) {
-            let info = dataById[d.id];
-            tooltip
-            .style("visibility", "visible")
-            .html(`${info.zip}<br>${info.mean_travel_time}%`)
-            .style("top", (event.pageY - 10) + "px")
-            .style("left", (event.pageX + 10) + "px");
-            d3.select(this).attr("fill", "goldenrod");
-        })
-        .on("mouseout", function () {
-            tooltip.style("visibility", "hidden");
-            d3.select(this).attr("fill", d => (d.id in dataById) ? color(dataById[d.id].mean_travel_time) : '#ccc');
-        });
+        // .on("mousemove", function (event, d) {
+        //     let info = dataById[d.id];
+        //     tooltip
+        //     .style("visibility", "visible")
+        //     .html(`${info.zip}<br>${info.mean_travel_time}%`)
+        //     .style("top", (event.pageY - 10) + "px")
+        //     .style("left", (event.pageX + 10) + "px");
+        //     d3.select(this).attr("fill", "goldenrod");
+        // })
+        // .on("mouseout", function (event, d) {
+        //     tooltip.style("visibility", "hidden");
+        //     // d3.select(this).attr("fill", d => (d.id in dataById) ? color(dataById[d.id].mean_travel_time) : '#ccc');
+        //     d3.select(this).attr("fill", (d) => { 
+        //         console.log(d);
+        //         return d.properties.zip in dataById
+        //           ? color(dataById[d.properties.zip].mean_travel_time)
+        //           : "#ccc";
+        //       })
+        // });
 
 })
