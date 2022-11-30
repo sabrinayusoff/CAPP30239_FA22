@@ -14,6 +14,7 @@ References:
 //             "$50,000 to $64,999",
 //             "$65,000 to $74,999",
 //             "$75,000 or more"]
+
 earnings = ["$1 to $34,999 or less",
             "$35,000 to $74,999",
             "$75,000 or more"]
@@ -164,3 +165,4 @@ function StackedBarChart(data, {
     
     return Object.assign(svg.node(), {scales: {color}});
   }
+

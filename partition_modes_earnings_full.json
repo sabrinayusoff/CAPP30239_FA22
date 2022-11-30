@@ -1,0 +1,44 @@
+{
+    "name": "modes of transportation to work",
+    "children": [
+        {
+            "name": "carpooled",
+            "children": [
+                {"name": "$1 to $9,999 or less", "value": 8487.16},
+                {"name": "$10,000 to $14,999", "value": 6286},
+                {"name": "$15,000 to $24,999", "value": 16314.62},
+                {"name": "$25,000 to $34,999", "value": 16242.21},
+                {"name": "$35,000 to $49,999", "value": 12694.38},
+                {"name": "$50,000 to $64,999", "value": 8752.82},
+                {"name": "$65,000 to $74,999", "value": 3755.94},
+                {"name": "$75,000 or more", "value": 14594.07}
+            ]    
+        },
+        {
+            "name": "drove alone",
+            "children": [
+                {"name": "$1 to $9,999 or less", "value": 37120.58},
+                {"name": "$10,000 to $14,999", "value": 26128},
+                {"name": "$15,000 to $24,999", "value": 68008.28},
+                {"name": "$25,000 to $34,999", "value": 80895.18},
+                {"name": "$35,000 to $49,999", "value": 87539.74},
+                {"name": "$50,000 to $64,999", "value": 69332.13},
+                {"name": "$65,000 to $74,999", "value": 31661.13},
+                {"name": "$75,000 or more", "value": 124526.09}
+            ]
+        },
+        {
+            "name": "public transportation",
+            "children": [
+                {"name": "$1 to $9,999 or less", "value": 30022.76},
+                {"name": "$10,000 to $14,999", "value": 18388.11},
+                {"name": "$15,000 to $24,999", "value": 40125.48},
+                {"name": "$25,000 to $34,999", "value": 36534.45},
+                {"name": "$35,000 to $49,999", "value": 39419.74},
+                {"name": "$50,000 to $64,999", "value": 33623},
+                {"name": "$65,000 to $74,999", "value": 17564.61},
+                {"name": "$75,000 or more", "value": 70067.21}
+            ]
+        }
+    ]
+}

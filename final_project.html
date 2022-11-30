@@ -6,54 +6,99 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Transport Equity in Chicago</title>
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,600" rel="stylesheet">
   <style>
      * {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: 'Work Sans', Arial, Helvetica, sans-serif;
+      /* font-size: 12px; */
+      text-transform: none;
+    }
+
+    h1  {
+      font-size: 32px;
+      text-transform: none;
+      font-weight: 600;
+    }
+
+    #container {
+      max-width: 1000px;
+      margin: 0 auto;
     }
   </style>
 </head>
 
 <body>
-  <div id="container">
-    <p>Note: This is a very, very rough working draft of my final project, which I will pick back up
-        after the break. I also just wanted to let you know that I changed the topic of my project and
-        am now focusing on transport equity in Chicago. I will be examining the amount of time taken
-        for residents in different parts of Chicago to travel to work, and see if there are any differences
-        along socioeconomic status variables such as earnings.
-    </p>
-    <h1>Mode of Transportation By Earnings in Chicago in 2020</h1>
-    <p>This chart shows the proportion of people using various modes of transportation in Chicago in 2020.
-        To add: legend and percentage labels to more clearly show proportions.
-        Source: 
-      <a href="https://data.census.gov/table?q=s0802&g=0400000US17$8600000&tid=ACSST5Y2020.S0802&moe=true&tp=false">US Census (American Community Survey)</a>
-    </p>
-   <div id="mode-of-transport-earnings"></div>
-  </div>
+    <div id="container">
+        <h1>Most people drive alone to work</h1>
+        <p>
+            Majority of working adults over 15 years old travel to work by driving alone, followed by taking public transportation.
+            Interestingly, a large proportion of residents with lower earnings (between $1 to $34,999) drive alone despite it being a more expensive
+            mode of transport. There may be various explanations for this, one of which could be the inadequacy of public
+            transportation in bringing them to work.
+            <a href="https://data.census.gov/table?q=s0802&g=0400000US17$8600000&tid=ACSST5Y2020.S0802&moe=true&tp=false">US Census (American Community Survey)</a>
+        </p>
 
-  <div id="container">
-    <h1>Commute Times by Zipcode</h1>
-    <p>This chart shows the time taken to travel to work for those taking public transportation, organized by zip code in 2020.
-        Source: 
-      <a href="https://data.census.gov/table?q=s0802&g=0400000US17$8600000&tid=ACSST5Y2020.S0802&moe=true&tp=false">US Census (American Community Survey)</a>
-    </p>
-   <div id="commute-times"></div>
-   <div id="choropleth-legend"></div>
-  </div>
+        <div id="sunburst-chart">
+            <!-- <svg width="800" height="800" viewbox="-400 -400 800 800"></svg> -->
+        </div>
+    </div>
 
-  <div id="container">
-    <h1>Donut chart</h1>
-    <p>This chart shows the proportion of Chicago residents travelling to work by driving cars alone, carpooling, and public transport.
-        Source: 
-      <a href="https://data.census.gov/table?q=s0802&g=0400000US17$8600000&tid=ACSST5Y2020.S0802&moe=true&tp=false">US Census (American Community Survey)</a>
-    </p>
-   <div id="donut-chart-modes"></div>
-  </div>
+    <div id="container">
+        <h1>Mode of Transportation By Earnings in Chicago in 2020</h1>
+        <p>This chart shows the proportion of people using various modes of transportation in Chicago in 2020.
+            To add: legend and percentage labels to more clearly show proportions.
+            Source: 
+            <a href="https://data.census.gov/table?q=s0802&g=0400000US17$8600000&tid=ACSST5Y2020.S0802&moe=true&tp=false">US Census (American Community Survey)</a>
+        </p>
+        <div id="mode-of-transport-earnings"></div>
+    </div>
+
+    <div id="container">
+        <h1>Commute Times by Zipcode</h1>
+        <p>This chart shows the time taken to travel to work for those taking public transportation, organized by zip code in 2020.
+            Source: 
+            <a href="https://data.census.gov/table?q=s0802&g=0400000US17$8600000&tid=ACSST5Y2020.S0802&moe=true&tp=false">US Census (American Community Survey)</a>
+        </p>
+        <div id="commute-times"></div>
+        <div id="choropleth-legend"></div>
+    </div>
+
+    <div id="container">
+        <h1>Median Earnings by Zipcode</h1>
+        <p>
+            Source: 
+            <a href="https://data.census.gov/table?q=s0802&g=0400000US17$8600000&tid=ACSST5Y2020.S0802&moe=true&tp=false">US Census (American Community Survey)</a>
+        </p>
+        <div id="choropleth-earnings"></div>
+        <div id="earnings-legend"></div>
+    </div>
+    
+    <!-- <div id="container">
+        <h1>Donut chart</h1>
+        <p>This chart shows the proportion of Chicago residents travelling to work by driving cars alone, carpooling, and public transport.
+            Source: 
+        <a href="https://data.census.gov/table?q=s0802&g=0400000US17$8600000&tid=ACSST5Y2020.S0802&moe=true&tp=false">US Census (American Community Survey)</a>
+        </p>
+        <div id="donut-chart-modes"></div>
+    </div> -->
+
+    <div id="container">
+        <h1>Breakdown of public transportation users by race</h1>
+        <p>
+            Source: 
+        <a href="https://data.census.gov/table?q=s0802&g=0400000US17$8600000&tid=ACSST5Y2020.S0802&moe=true&tp=false">US Census (American Community Survey)</a>
+        </p>
+        <div id="public-transport-donut"></div>
+    </div>
 
   <script src="https://d3js.org/d3.v7.min.js"></script>
   <script src="libs/d3-color-legend.js"></script> <!-- color legend from Observable -->
   <script src="stacked_bar_modes_of_transport.js"></script>
   <script src="choropleth_commute_times.js"></script>
-  <script src="modes_of_transport_donut.js"></script>
+  <script src="choropleth_earnings.js"></script>
+  <script src="public_transport_race_donut.js"></script>
+  <!-- <script src="modes_of_transport_donut.js"></script> -->
+  <script src="sunburst.js"></script>
   <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
 </body>
 </html>

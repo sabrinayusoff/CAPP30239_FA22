@@ -1,7 +1,6 @@
 /* This file creates a choropleth map of zipcodes in Chicago
-and the average commute times for each zipcode.
+and the median earnings for each zipcode.
 */
-
 const tooltip = d3.select("body")
     .append("div")
     .attr("class", "svg-tooltip")
@@ -11,13 +10,13 @@ const tooltip = d3.select("body")
 const height = 610,
     width = 975;
 
-const svg = d3.select("#commute-times")
+const svg = d3.select("#choropleth-earnings")
     .append("svg")
     .attr("viewBox", [0, 0, width, height]);
 
 
 Promise.all([
-    d3.csv("data/mean_travel_time.csv"),
+    d3.csv("data/median_earnings_by_zip.csv"),
     d3.json("libs/chicago_boundaries_zipcodes.geojson")
 ]).then(([data, chicago]) => {
 
@@ -25,17 +24,17 @@ Promise.all([
     const dataById = {};
 
     for (let d of data) {
-        d.mean_travel_time = +d.mean_travel_time; //force a number
+        d.median_earnings = +d.median_earnings; //force a number
         dataById[d.zip] = d;
     }
     // console.log("databyid", dataById);
 
     const color = d3.scaleQuantize() // takes domain and creates 7 number of buckets of blue
-        .domain([0, 70]).nice()
+        .domain([0, 200,000]).nice()
         .range(d3.schemeBlues[7]);
 
     // create legend
-    d3.select("#choropleth-legend") // refer to div in html with legend id
+    d3.select("#earnings-legend") // refer to div in html with legend id
     .node()
     .appendChild(
     Legend(
@@ -43,7 +42,7 @@ Promise.all([
         ["10min", "20min", "30min", "40min", "50min", "60min", "70+min"],
         d3.schemeBlues[7]
         ),
-        { title: "Travel Time to Work (public transportation)" }
+        { title: "Median Earnings by Zipcode" }
     ));
 
     // Chicago specific projection
@@ -66,7 +65,7 @@ Promise.all([
         .attr("fill", (d) => { 
             // console.log(d);
             return d.properties.zip in dataById
-            ? color(dataById[d.properties.zip].mean_travel_time)
+            ? color(dataById[d.properties.zip].median_earnings)
             : "#ccc";
         })
         .attr('d', geoGenerator)
@@ -93,3 +92,4 @@ Promise.all([
         // });
 
 })
+
