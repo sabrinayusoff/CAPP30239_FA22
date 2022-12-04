@@ -1,9 +1,9 @@
 /* This file creates a choropleth map of zipcodes in Chicago
-and the median earnings for each zipcode.
+and the % black residents for each zipcode.
 */
 
 Promise.all([
-    d3.csv("data/median_earnings_by_zip.csv"),
+    d3.csv("data/race_by_zipcode.csv"),
     d3.json("libs/chicago_boundaries_zipcodes.geojson")
 ]).then(([data, chicago]) => {
 
@@ -18,7 +18,7 @@ Promise.all([
     const height = 800,
         width = 800;
 
-    const svg = d3.select("#choropleth-earnings")
+    const svg = d3.select("#choropleth-race")
         .append("svg")
         .attr("viewBox", [0, 0, width, height]);
 
@@ -26,25 +26,24 @@ Promise.all([
     const dataByZip = {};
 
     for (let d of data) {
-        d.median_earnings = +d.median_earnings; //force a number
+        d.black_percent = +d.black_percent; //force a number
         dataByZip[d.zip] = d;
     }
-    // console.log("dataByZip", dataByZip);
+    console.log("dataByZip", dataByZip);
 
     const color = d3.scaleQuantize() //
-        .domain([0, 75000]).nice()
-        .range(["#cbc9e2","#9e9ac8","#54278f"]);
+        .domain([0, 1])
+        .range(["#fdae6b","#fd8d3c","#f16913","#d94801","#8c2d04"]);
 
     // create legend
-    d3.select("#earnings-legend") // refer to div in html with legend id
+    d3.select("#race-legend") // refer to div in html with legend id
     .node()
     .appendChild(
     Legend(
-        d3.scaleOrdinal( // created a new scale to format it ourselves
-        ["<= 24,999", "25,000 to 74,999", "75k+"],
-        ["#cbc9e2","#9e9ac8","#54278f"]
+        d3.scaleQuantize(
+        ["#fdae6b","#fd8d3c","#f16913","#d94801","#8c2d04"]
         ),
-        { title: "Median Earnings by Zipcode ($)" }
+        { title: "% Black Residents" }
     ));
 
     // Chicago specific projection
@@ -66,7 +65,7 @@ Promise.all([
         .attr("fill", (d) => { 
             // console.log(d);
             return d.properties.zip in dataByZip
-            ? color(dataByZip[d.properties.zip].median_earnings)
+            ? color(dataByZip[d.properties.zip].black_percent)
             : "#ccc";
         })
         .attr('d', geoGenerator)
@@ -76,7 +75,7 @@ Promise.all([
             let info = dataByZip[d.properties.zip];
             tooltip
             .style("visibility", "visible")
-            .html(`Zip: ${info.zip}<br> Median earnings: ${d3.format("$,")(info.median_earnings)}`)
+            .html(`Zip: ${info.zip}<br> % black residents: ${info.black_percent}`)
             .style("top", (event.pageY - 10) + "px")
             .style("left", (event.pageX + 10) + "px");
             d3.select(this).attr("fill", "goldenrod");
@@ -86,7 +85,7 @@ Promise.all([
             d3.select(this).attr("fill", (d) => { 
                 console.log(d);
                 return d.properties.zip in dataByZip
-                  ? color(dataByZip[d.properties.zip].median_earnings)
+                  ? color(dataByZip[d.properties.zip].black_percent)
                   : "#ccc";
               })
         });

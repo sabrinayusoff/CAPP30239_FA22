@@ -29,7 +29,7 @@ d3.csv("data/mode_of_transport_donut.csv").then(data => {
       .selectAll("path")
       .data(arcs) // data after it was passed through the pie() function
       .join("path")
-      .attr("fill", d3.scaleOrdinal().domain(data).range(d3.schemeSet3))
+      .attr("fill", d3.scaleOrdinal().domain(data).range(["#e15759","#1b9e77","#4e79a7"]))
       .attr("d", arc);
   
     // text labels

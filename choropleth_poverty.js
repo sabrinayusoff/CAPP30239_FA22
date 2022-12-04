@@ -3,7 +3,7 @@ and the median earnings for each zipcode.
 */
 
 Promise.all([
-    d3.csv("data/median_earnings_by_zip.csv"),
+    d3.csv("data/poverty_status_by_zip.csv"),
     d3.json("libs/chicago_boundaries_zipcodes.geojson")
 ]).then(([data, chicago]) => {
 
@@ -18,7 +18,7 @@ Promise.all([
     const height = 800,
         width = 800;
 
-    const svg = d3.select("#choropleth-earnings")
+    const svg = d3.select("#choropleth-poverty")
         .append("svg")
         .attr("viewBox", [0, 0, width, height]);
 
@@ -26,25 +26,25 @@ Promise.all([
     const dataByZip = {};
 
     for (let d of data) {
-        d.median_earnings = +d.median_earnings; //force a number
+        d.percent_below_100_percent_of_the_poverty_level = +d.percent_below_100_percent_of_the_poverty_level; //force a number
         dataByZip[d.zip] = d;
     }
-    // console.log("dataByZip", dataByZip);
+    console.log("dataByZip", dataByZip);
 
-    const color = d3.scaleQuantize() //
-        .domain([0, 75000]).nice()
-        .range(["#cbc9e2","#9e9ac8","#54278f"]);
+    const color = d3.scaleQuantize()
+        .domain([0, 25])
+        .range(["#a1d99b","#74c476","#41ab5d","#238b45","#005a32"]);
 
-    // create legend
-    d3.select("#earnings-legend") // refer to div in html with legend id
+    d3.select("#poverty-legend") // refer to div in html with legend id
     .node()
     .appendChild(
     Legend(
-        d3.scaleOrdinal( // created a new scale to format it ourselves
-        ["<= 24,999", "25,000 to 74,999", "75k+"],
-        ["#cbc9e2","#9e9ac8","#54278f"]
+        d3.scaleOrdinal(
+        ["0-5", "5-10", "10-15", "15-20", "20+"],
+        ["#a1d99b","#74c476","#41ab5d","#238b45","#005a32"]
+        
         ),
-        { title: "Median Earnings by Zipcode ($)" }
+        { title: "Residents Living Below 100% of the Poverty Line (%)" }
     ));
 
     // Chicago specific projection
@@ -66,7 +66,7 @@ Promise.all([
         .attr("fill", (d) => { 
             // console.log(d);
             return d.properties.zip in dataByZip
-            ? color(dataByZip[d.properties.zip].median_earnings)
+            ? color(dataByZip[d.properties.zip].percent_below_100_percent_of_the_poverty_level)
             : "#ccc";
         })
         .attr('d', geoGenerator)
@@ -76,7 +76,7 @@ Promise.all([
             let info = dataByZip[d.properties.zip];
             tooltip
             .style("visibility", "visible")
-            .html(`Zip: ${info.zip}<br> Median earnings: ${d3.format("$,")(info.median_earnings)}`)
+            .html(`Zip: ${info.zip}<br> % below 100% of the poverty line: ${info.percent_below_100_percent_of_the_poverty_level}%`)
             .style("top", (event.pageY - 10) + "px")
             .style("left", (event.pageX + 10) + "px");
             d3.select(this).attr("fill", "goldenrod");
@@ -86,7 +86,7 @@ Promise.all([
             d3.select(this).attr("fill", (d) => { 
                 console.log(d);
                 return d.properties.zip in dataByZip
-                  ? color(dataByZip[d.properties.zip].median_earnings)
+                  ? color(dataByZip[d.properties.zip].percent_below_100_percent_of_the_poverty_level)
                   : "#ccc";
               })
         });
