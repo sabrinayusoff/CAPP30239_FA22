@@ -1,0 +1,10 @@
+﻿mode,earnings,count,percent
+drove alone ,"$1 to $34,999 or less",212152.04,40.39
+drove alone ,"$35,000 to $74,999",188533,35.9
+drove alone ,"$75,000 or more",124526.09,23.71
+carpooled,"$1 to $34,999 or less",47329.99,54.32
+carpooled,"$35,000 to $74,999",25203.14,28.93
+carpooled,"$75,000 or more",14594.07,16.75
+public transportation,"$1 to $34,999 or less",125070.8,43.77
+public transportation,"$35,000 to $74,999",90607.35,31.71
+public transportation,"$75,000 or more",70067.21,24.52

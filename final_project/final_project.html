@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transit Equity in Chicago</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Kdam+Thmor+Pro&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div>
+        <h1 id="title">PUBLIC TRANSIT EQUITY IN CHICAGO</h1>
+        <h3 id="subtitle">
+            CAPP30239 Data Visualization for Public Policy <br>
+            Final Project <br>
+            Sabrina Yusoff (Dec 05, 2022)
+        </h3>
+    </div>
+    <div id="container">
+        <br>
+        <p>
+            Urban transportation is the lifeline of a city, providing its people with access to employment, medical services,
+            and community and recreational opportunities. It impacts the lives of urban dwellers in many ways:
+            <ul>
+                <li><b>Mobility:</b> Transportation planning affects not only economic development in an area but also access
+                    to economic opportunities across a city. It also impacts access to various services including medical
+                    facilities, social and recreational activities, and basic necessities like food and education.</li>
+                <br>
+                <li><b>Quality of transportation services:</b> Residents' experiences of engaging with transportation infrastructure
+                    directly influence their daily quality of life. Key factors affecting these experiences include traffic
+                    congestion, safety on roads and public transit, and frequency of services.</li>
+                <br>
+                <li><b>Expenditure:</b> Transportation was the second-highest expenditure for American households in 2021,
+                    with households spending an average of $10,961 on transportation (U.S. Department of Transportation, Bureau of Transportation Statistics,
+                    <a href="www.bts.gov/product/transportation-economic-trends">Transportation Economic Trends</a>).
+                    While households in the bottom
+                    income quintile spend the least on transportation ($4,273 vs $19,204 by households in the highest income quintile),
+                    they face a larger transportation cost burden, spending 26.9% of their after-tax income on transportation compared
+                    to 10.4% by the highest income quintile in 2021. In 2021, almost a third of households in the bottom income quintile
+                    ($0 to 24,127) do not own vehicles, and if they do, they own one vehicle per household on average.
+                    This is in stark contrast to households in the top income quintile ($129,53 and above), of which 96% own a vehicle,
+                    with an average of 2.7 private vehicles per household.
+                    .
+                </li>
+            </ul>
+        </p>
+        <p>
+            Given its significant impacts on the lives of urban dwellers, equity is a primary concern in transportation planning.
+            Specifically, public transit is an essential service for residents who do not own private vehicles and for whom
+            access to such opportunities is highly dependent on their mobility across the city. As such, equity is a particularly important priority
+            for a sprawling city like Chicago where racial and
+            socioeconomic disparities are aligned with geographic boundaries of neighborhoods.
+            <br>
+            <br>
+            This project uses data from the American Community Survey (ACS) 2020 to examine the modes of transportation taken to work by
+            Chicago residents and the time taken to travel to work.
+            It will compare zip codes in Chicago on these metrics, as well as on socioeconomic indicators, drawing observations about
+            disparities in the role of public transportation in the lives of Chicagoans.
+        </p>
+        <hr>
+        <div id="donut-text" class="flex-container">
+            <div class="flex-item">
+                <br>
+                <br>
+                <br>
+                <h3>
+                    Most Chicagoans drive alone to work
+                </h3>
+                <p>
+                    Majority of residents over 16 years old in Chicago who do not work from home travel to work by driving alone (58.48%),
+                    and a large proportion take public transportation (31.82%). In comparison with other large cities in the US,
+                    the proportion of residents taking public transportation in Chicago, while lower than that in New York City
+                    (<a href="https://data.census.gov/table?q=s0802&g=1600000US3651000&tid=ACSST5Y2020.S0802&moe=true&tp=false">52.82%</a>),
+                    is far higher than that in Los Angeles
+                    (<a href="https://data.census.gov/table?q=s0802&g=1600000US0644000&tid=ACSST5Y2020.S0802&moe=true&tp=false">8.24%</a>).
+                </p>
+            </div>
+            <div class="flex-item">
+                <div id="donut-chart-modes"></div>
+                <div class="source">
+                    Source: <a href="https://data.census.gov/table?q=s0802&g=0400000US17$8600000&tid=ACSST5Y2020.S0802&moe=true&tp=false" class="source">
+                    American Community Survey, 2020</a>
+                </div>
+            </div> 
+        </div>
+
+    <div class="flex-container">
+        <div class="flex-item">
+            <div id="ridership-multiple"></div>
+            <br>
+            <div id="ridership-multiple-legend" class="legend"></div>
+            <div class="source">
+                Source: <a href="https://data.cityofchicago.org/Transportation/CTA-Ridership-Daily-Boarding-Totals/6iiy-9s97/data" class="source">
+                Chicago Data Portal, CTA Ridership Daily Totals</a>
+            </div>
+        </div>
+        <div id="line-chart-text" class="flex-item">
+            <h3>Pre-pandemic CTA Ridership has been constant in the last two decades</h3>
+            <p>
+                Consistent with stagnant population growth in the last decade
+                (<a href="https://data.census.gov/table?q=Population+Total&g=1600000US1714000&tid=ACSDT5Y2020.B01003">ACS, data.census.gov</a>),
+                CTA ridership has remained high, with an average total ridership of at least 1.5 million every year.
+                A lack of downward trend in public transportation usage despite the rise in popularity of rideshare apps like Uber and Lyft
+                suggests a continued reliance on public transportation, although whether by choice (which may signal satisfaction with the
+                quality of public transit) or otherwise (due to alternatives of rideshare and private vehicle ownership being more costly) is not clear.
+            </p>
+        </div>
+    </div>
+    <hr>
+    <div class="flex-container">
+        <div class="flex-item">
+            <h3>But the picture may not be all that rosy… 
+                <br>
+                <br>
+                Neighborhoods in the South and North-West of Chicago have the longest public transportation commutes
+                </h3>
+            <p>
+                Of those who commute to work by public transportation, residents living in neighborhoods that are farther
+                away from downtown Chicago take much longer to travel to work. Notably, neighborhoods in the far South of Chicago
+                have the longest commute times, taking more than 50 minutes to travel to work.
+                <br>
+                <br>
+                Neighborhoods in the South are particularly disadvantaged as most of Chicagos jobs are concentrated in downtown
+                and North Chicago, with 51.6% of private sector employment based in the central business district and outer business
+                ring in 2020, and 28.9% located in the North, North West and West Central. In contrast, private sector work sites in the South,
+                far South and South West of Chicago make up less than 20% of total private sector employment
+                (<a href="https://ides.illinois.gov/resources/labor-market-information/where-workers-work.html">Illinois Department of Employment Security</a>).
+                
+                Hence, these residents not only face fewer job opportunities within their areas of residence, but also experience lower mobility
+                in accessing employment in other parts of Chicago.
+            </p>
+        </div>
+        <div class="flex-item">
+            <div id="commute-times"></div>
+            <div id="commute-times-legend"></div>
+            <div class="source">
+                Source: <a href="https://data.census.gov/table?q=s0802&g=0400000US17$8600000&tid=ACSST5Y2020.S0802&moe=true&tp=false" class="source">
+                American Community Survey, 2020</a>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div>
+        <h3>These are also the neighborhoods with the lowest earnings and highest proportion of residents living below 100% of the poverty line.
+            These neighborhoods are also predominantly Black.
+        </h3>
+        <p>
+            For example, zip codes 60617, 60628, 60619 have median earnings less than 80% of median earnings in Chicago in 2020
+            ($43,827) (<a href="https://data.census.gov/table?q=s0802&g=1600000US1714000&tid=ACSST5Y2020.S0802&moe=true&tp=false">ACS, census.gov</a>).
+            More than 15% of residents in these neighborhoods are below 100% of the poverty line, and more than 90% of these residents are Black.
+            This highlights that disparities facing Black communities in Chicago extend far beyond employment, educational attainment, and income
+            but also quality of life and physical mobility.
+        </p>
+        <div class="flex-container" id="choropleths">
+            <div class="flex-item">
+                <div id="choropleth-earnings" class="choropleth"></div>
+                <div id="earnings-legend" class="legend"></div>
+            </div>
+            <div class="flex-item">
+                <div id="choropleth-poverty" class="choropleth"></div>
+                <div id="poverty-legend" class="legend"></div>
+            </div>
+            <div class="flex-item">
+                <div id="choropleth-race" class="choropleth"></div>
+                <div id="race-legend" class="legend"></div>
+            </div>
+        </div>
+        <div class="source">
+            Source: <a href="https://data.census.gov/table?q=s0802&g=0400000US17$8600000&tid=ACSST5Y2020.S0802&moe=true&tp=false" class="source">
+            American Community Survey, 2020</a>
+        </div>    
+    </div>
+    <hr>
+    <div class="flex-container">
+        <div class="flex-item">
+            <h3>A disproportionately high proportion of Black and Asian residents take public transportation to work</h3>
+            <p>
+                Compared to their makeup of the Chicago population, more Black and Asian residents take public transportation
+                to work. In contrast, only a fifth of White residents take public transportation, although they make up almost
+                half the population.
+            </p>
+        </div>
+        <div class="flex-item">
+            <div id="race-public-transport"></div>
+            <div id = "race-pop-legend" class="legend"></div>
+            <div class="source">
+                Source: <a href="https://data.census.gov/table?q=s0802&g=0400000US17$8600000&tid=ACSST5Y2020.S0802&moe=true&tp=false" class="source">
+                American Community Survey, 2020</a>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h3>Conclusion</h3>
+            <p>
+                In all, Chicago has displayed high reliance on public transportation not only for work commutes but for everyday
+                travel throughout the city. This preliminary analysis suggests some areas for improvement in the Chicago public
+                transit system, namely, disparities in its services to communities in the South.
+                Given the potentially indispensable role of public transit for low-income, Black communities,
+                more consideration should be afforded to ensuring that these communities have access to efficient, reliable,
+                affordable and extensive public transit options.
+            </p>
+    </div>
+    <hr>
+    <h2>Project Process</h2>
+    <div>
+        <h3>Motivation</h3>
+            <p>
+                After living in Chicago for more than a year and as someone who does not own a car, I have had first-hand experience
+                navigating the Chicago public transit system to access various services around the city, so I thought it would be
+                interesting to understand how the system is being used by the long-term residents in the city.
+            </p>
+        <h3>About the Data:</h3>
+            <p>
+                The data for this project comes primarily from the
+                <a href="https://data.census.gov/table?q=s0802&g=0400000US17$8600000&tid=ACSST5Y2020.S0802&moe=true&tp=false">ACS 5-year estimates for 2020</a>.
+                The ACS is an ongoing survey that gathers data on Americans' jobs, educational attainments and a wide range of topics
+                including housing, income and demographic information. Given that this analysis uses fine-grained data on individual zipcodes
+                in Chicago, I used 5-year estimates rather than 1-year estimates as they provide greater precision for analyzing very small populations.
+                In this case, the estimates for 2020 are obtained from 2016-2020 data.
+                <br>
+                <br>
+                Additionally, CTA ridership data was obtained from the Chicago Data Portal. As the data came in the form of daily ridership,
+                the data was aggregated by year and the annual averages were used in the analysis. 
+            </p>
+        <h3>About the Story:</h3>
+            <p>
+                The story was the most challenging part of this project as I did not initially approach the project with a strong story in
+                mind and instead adopted a more exploratory approach so that towards the end of the project, there were not many strong conclusions
+                I could make about the data. This highlights to me that the role of data visualization is ultimately to support the delivery of a
+                story or message, and to provide a visual aid to the facts or observations made in the writing. In a real-world context, I imagine
+                that this analysis > story > visualization process would occur more naturally, but this is a good reminder to take with me nonetheless.
+                <br>
+                <br>
+                In terms of commute time to work, the ACS was the only dataset that I found that provides comprehensive demographic measures along
+                with commute time and modes of transportation. To dig deeper into critiquing the Chicago public transit system, however, it would
+                have been ideal to obtain data on performance measures on the CTA. While the CTA provides open access to its data on locations of bus
+                stops and rail stops, as well as ridership data, it would have been interesting to look at data on delays and disruptions, especially
+                in these post-pandemic times when there is a shortage of service staff.
+                <br>
+                <br>
+                Additionally, it would also have been interesting to see how the proportion of residents taking public transport changed
+                between pre- and post-pandemic years, but it would have required much more data wrangling and analysis than time allowed.
+                <br>
+                <br>
+                Finally, given that Chicago has the second-highest percentage of commuters riding their bikes to work
+                (<a href="https://www.chicago.gov/city/en/about/facts.html">chicago.gov</a>),
+                another area to explore is how other less common modes of commute like cycling and walking are used and how they differ
+                across cities, comparing the level of walking or cycling friendliness of different cities in the United States.
+            </p>
+        <h3>About the charts:</h3>
+            <p>
+                <b>Donut chart:</b> I picked this chart as it was a simple yet effective way to show the proportions of residents taking
+                different modes of transportation to work.
+                <br>
+                <br>
+                <b>Line chart:</b> To show the change in ridership over time, a line chart was most effective to identify a trend in ridership.
+                I chose to present the different lines in different colors to better convey the distinct categories they represented,
+                and used the tooltip to show exact values for individual years as it may be difficult to trace the y-axis lines across the
+                chart to estimate a value.
+                <br>
+                <br>
+                <b>Choropleths:</b> A choropleth was most ideal to examine the geographical distribution of various measures as it
+                allowed me to use colors to indicate variation in continuous measures.
+                <br>
+                <br>
+                <b>Bar chart:</b> I used a bar chart to compare two types of proportions: % of Chicago population,
+                and % that take public transportation. Doing so helped convey the message of over-representation in particular groups
+                in usage of public transportation.
+                <br>
+                <br>
+                <b>Colors:</b> In general, I made sure to check that the contrast of colors used against the white background of the
+                page was high enough. In particular, I used colors that had a contrast ratio of at least 3:1 for the charts.
+            </p>
+        <h3>Coding challenges:</h3>
+            <p>
+                One challenge I faced was factoring repeated code into reusable dry functions.
+                In particular, the code to create the choropleth was difficult to refactor as there were some parts in the
+                code which were highly customized to the particular choropleth and due to insufficient time, I was unable to work
+                out how to extract these particularities as parameters to a function.
+            </p>
+
+    </div>
+        
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+  <script src="libs/d3-color-legend.js"></script>
+  <script src="modes_of_transport_donut.js"></script>
+  <script src="line_chart_ridership_multiple.js"></script>
+  <script src="choropleth_commute_times.js"></script>
+  <script src="choropleth_earnings.js"></script>
+  <script src="choropleth_poverty.js"></script>
+  <script src="choropleth_race.js"></script>
+  <script src="grouped_bar_race.js"></script>
+</body>
+</html>
