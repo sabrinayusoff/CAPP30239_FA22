@@ -6,28 +6,22 @@
 
 body {
     border: solid #ede6e5;
-    /* border: solid #014636; */
     border-width: 50px;
-    /* margin-bottom: 100px;
-    margin-top: 50px; */
 }
   
   h1  {
-    /* font-family: 'Work Sans', sans-serif; */
     font-size: 55px;
     text-transform: none;
     font-weight: 600;
   }
 
   h2  {
-    /* font-family: 'Work Sans', sans-serif; */
     font-size: 25px;
     text-transform: none;
     font-weight: 600;
   }
 
   h3  {
-    /* font-family: 'Work Sans', sans-serif; */
     font-size: 18px;
     text-transform: none;
     font-weight: 600;
@@ -36,7 +30,6 @@ body {
   #container {
     max-width: 1000px;
     margin: 0 auto;
-    /* text-align: justify; */
   }
 
   #title {
@@ -44,10 +37,8 @@ body {
     margin-top: 50px;
     text-align: center;
     width: 70%;
-    /* border: 3px solid green; */
     padding: 10px;
     font-family: 'Kdam Thmor Pro', sans-serif;
-    /* color: #016858; */
   }
 
   #subtitle {
