@@ -31,8 +31,9 @@ Promise.all([
     }
 
     const color = d3.scaleQuantize() //
-        .domain([0, 75000]).nice()
-        .range(["#cbc9e2","#9e9ac8","#54278f"]);
+        .domain([0, 100000]).nice()
+        // .range(["#cbc9e2","#9e9ac8","#54278f"]);
+        .range(d3.schemePurples[5]);
 
     // create legend
     d3.select("#earnings-legend") // refer to div in html with legend id
@@ -40,8 +41,9 @@ Promise.all([
     .appendChild(
     Legend(
         d3.scaleOrdinal(
-        ["<= 24,999", "25,000 to 74,999", "75k+"],
-        ["#cbc9e2","#9e9ac8","#54278f"]
+        ["<= 20k", "20-40k", "40-60k", "60-80k", "80k+"],
+        // ["#cbc9e2","#9e9ac8","#54278f"]
+        d3.schemePurples[5]
         ),
         { title: "Median Earnings by Zipcode ($)" }
     ));
